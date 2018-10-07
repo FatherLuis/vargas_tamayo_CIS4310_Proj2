@@ -1,0 +1,90 @@
+Killeen,Dallas,152.7
+Killeen,Houston,188.4
+Killeen,El Paso,571.3
+Killeen,Sherman,216.4
+Killeen,Taylor,42.21
+Killeen,Tyler,186.5
+Killeen,Dime Box,98.4
+Killeen,Big Foot,201
+Killeen,Frio Town,224.6
+Dallas,Killeen,152.7
+Dallas,Houston,239
+Dallas,El Paso,634.7
+Dallas,Sherman,65
+Dallas,Taylor,167.3
+Dallas,Tyler,97.7
+Dallas,Dime Box,191.4
+Dallas,Big Foot,328.6
+Dallas,Frio Town,352.2
+Houston,Killeen,188.4
+Houston,Dallas,239
+Houston,El Paso,74.7
+Houston,Sherman,301.6
+Houston,Taylor,154.2
+Houston,Tyler,198.2
+Houston,Dime Box,106.1
+Houston,Big Foot,233.9
+Houston,Frio Town,254.4
+El Paso,Killeen,571.3
+El Paso,Dallas,634.7
+El Paso,Houston,74.7
+El Paso,Sherman,692.9
+El Paso,Taylor,607.3
+El Paso,Tyler,732.5
+El Paso,Dime Box,641.8
+El Paso,Big Foot,570.4
+El Paso,Frio Town,540.5
+Sherman,Killeen,216.4
+Sherman,Dallas,65
+Sherman,Houston,301.6
+Sherman,El Paso,692.9
+Sherman,Taylor,232
+Sherman,Tyler,127.2
+Sherman,Dime Box,257.4
+Sherman,Big Foot,377.3
+Sherman,Frio Town,400.9
+Taylor,Killeen,42.21
+Taylor,Dallas,167.3
+Taylor,Houston,154.2
+Taylor,El Paso,607.3
+Taylor,Sherman,232
+Taylor,Tyler,189.7
+Taylor,Dime Box,45.9
+Taylor,Big Foot,163.7
+Taylor,Frio Town,187.3
+Tyler,Killeen,186.5
+Tyler,Dallas,97.7
+Tyler,Houston,198.2
+Tyler,El Paso,732.5
+Tyler,Sherman,127.2
+Tyler,Taylor,189.7
+Tyler,Dime Box,183
+Tyler,Big Foot,346.5
+Tyler,Frio Town,370.2
+Dime Box,Killeen,98.4
+Dime Box,Dallas,191.4
+Dime Box,Houston,106.1
+Dime Box,El Paso,641.8
+Dime Box,Sherman,257.4
+Dime Box,Taylor,45.9
+Dime Box,Tyler,183
+Dime Box,Big Foot,177
+Dime Box,Frio Town,197.5
+Big Foot,Killeen,201
+Big Foot,Dallas,328.6
+Big Foot,Houston,233.9
+Big Foot,El Paso,570.4
+Big Foot,Sherman,377.3
+Big Foot,Taylor,163.7
+Big Foot,Tyler,346.5
+Big Foot,Dime Box,177
+Big Foot,Frio Town,30.2
+Frio Town,Killeen,224.6
+Frio Town,Dallas,352.2
+Frio Town,Houston,254.4
+Frio Town,El Paso,540.5
+Frio Town,Sherman,400
+Frio Town,Taylor,187.3
+Frio Town,Tyler,370.2
+Frio Town,Dime Box,197.5
+Frio Town,Big Foot,30.2
