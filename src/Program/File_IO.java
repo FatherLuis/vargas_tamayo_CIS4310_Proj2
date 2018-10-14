@@ -98,4 +98,6 @@ public class File_IO
     
     public ArrayList getCityOperation(){return this.CityOperation;}
     
+    public HashTable getHashTable(){return HT;}
+    
 }

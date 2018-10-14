@@ -17,6 +17,9 @@ public class RUN
         File_IO FI = new File_IO();
         
         FI.ReadFile();
+        
+        Generic_Algorithm GA = new Generic_Algorithm(FI.getCityList(),FI.getCityOperation(),FI.getHashTable());
+        GA.Calculate();
     
     }
     
