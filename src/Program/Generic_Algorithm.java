@@ -6,6 +6,7 @@
 package Program;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -27,75 +28,111 @@ public class Generic_Algorithm
     
     public void Calculate()
     {
-        ArrayList<Entity> population = new ArrayList();
+        ArrayList<Entity> curPopulation = new ArrayList();
         
-        for(int i=0; i < 20 ; i++)
+        int numGenerations = 1000;
+        int numChildren = 10000;
+        
+        Random rand = new Random();
+        int probability = 0;
+        
+        
+        for(int i=0; i < numGenerations ; i++)
         {
-            population.add(new Entity(CityPort, HT));
-            population.get(i).mutate();
-            System.out.println("\n");
-//            population.get(i).createSet();
-//            population.get(i).calMileage();
+            probability = rand.nextInt(100);
+            
+            System.out.println("Generation " + i);
+            for(int k = 0; k < numChildren; k++)
+            {
+                
+                curPopulation.add(new Entity(CityPort, HT)); 
+                
+                if(probability >= 80)
+                {
+                    curPopulation.get(k).mutate();
+                    //System.out.println("Mutation");
+                }
+                
+                
+            }
+            //System.out.println("Generation " + i + "  No more kids" );
+            
+            curPopulation = genSelection(curPopulation);
+            
+            //System.out.println("Population size: " + curPopulation.size());
+            
+            
+            
+            
+            
+            if(i != numGenerations - 1)
+            {
+                if(probability > 75)
+                {
+                    int size = curPopulation.size();
+                    //System.out.println("New Kids Coming");
+                    for(int x =0; x < size -1; x++)
+                    {
+                        //System.out.println(" Kid #" + x);
+                        curPopulation.add(new Entity(CityPort, HT, curPopulation.get(x), curPopulation.get(x+1))); 
+                    }
+                }      
+            }
+            
+            
+        }
+        
+        System.out.println("End of Generation");
+        curPopulation = genSelection(curPopulation);
+        
+        
+        
+        
+        
+        
+        
+        for(int i =0; i < curPopulation.size();i++)
+        {
+            for(int k =0; k < curPopulation.get(i).getSet().size(); k++)
+            {
+                System.out.print(curPopulation.get(i).getSet().get(k) + " ");
+            }
+            System.out.print(" " + curPopulation.get(i).getMiles() + "\n");
+        
         }
         
         
-        //Entity newChild = new Entity(CityPort, HT, population.get(0), population.get(1));
-        
-//        double minimum = 0;
-//        
-//        ArrayList<Entity> nextGen = new ArrayList();
-//        
-//        for(int i = 0; i < population.size(); i++)
-//        {
-//            if(i ==0)
-//            {
-//                minimum = population.get(i).getMiles();
-//                System.out.println("min: " + minimum);
-//                nextGen.add(population.get(i));
-//            }
-//            else if(nextGen.size() < 10)
-//            {
-//                if(population.get(i).getMiles() < minimum)
-//                {
-//                    nextGen.add(population.get(i));
-//                }
-//            }
-//        }
-//        
-//        for(int i=0; i < nextGen.size();i++)
-//        {
-//            System.out.println("nextGen Set " + i + ": " + nextGen.get(i).getMiles());
-//        }
-//        
-//        
-//        
-//        System.out.println("DID I BREAK");
-//        System.out.println("Size: " + nextGen.size());
-//        
-//        if(nextGen.size() < 10)
-//        {
-//            for(int i=nextGen.size(); i < 10; i++)
-//            {
-//                nextGen.add(new Entity(CityPort, HT));
-////                System.out.println("CreateSet()");
-////                nextGen.get(i).createSet();
-////                System.out.println("CalMileage()");
-////                nextGen.get(i).calMileage();
-//                
-//            }
-//        }
-//        
-//        
-//        for(int k =0; k < nextGen.size();k++)
-//        {
-//            System.out.println("nextGen " + k +": "+ nextGen.get(k).getMiles());
-//        
-//        }
-//        
-//        
-//        
-//        
     }
+    
+    private ArrayList genSelection(ArrayList<Entity> curGen)
+    {
+        ArrayList<Entity> chosenList = new ArrayList();
+        
+        for(int i=0; i < 6;i++)
+        {
+            chosenList.add(curGen.get(i));
+        }
+        
+        for(int i=chosenList.size(); i < curGen.size();i++)
+        {            
+            for(int k=0; k < chosenList.size(); k++)
+            {
+                if(curGen.get(i).getMiles() < chosenList.get(k).getMiles())
+                {
+                    chosenList.set(k, curGen.get(i));                   
+                    break;
+                }
+            }
+
+        }
+        
+        return chosenList;
+        
+    }
+    
+    
+
+    
     
     
     

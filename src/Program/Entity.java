@@ -30,8 +30,10 @@ public class Entity
         this.AvailablePorts = CityPorts.size();
         this.HT = HT;
         seqSet = new ArrayList();
+        
         seqSet.add(4);
         CityPorts.set(4, false);
+        this.AvailablePorts--;
         
         
         createSet();
@@ -44,16 +46,15 @@ public class Entity
         this.AvailablePorts = CityPorts.size();
         this.HT = HT;
         seqSet = new ArrayList();
+        
         seqSet.add(4);
         CityPorts.set(4, false);
+        this.AvailablePorts--;
         
         
         merge(Set1,Set2);
         calMileage();
     }    
-    
-    
-    
     
     private void createSet()
     {
@@ -62,9 +63,10 @@ public class Entity
         
         
         
-        for(int i=1; i < this.CityPorts.size();i++)
-        {
+//        for(int i=1; i < this.CityPorts.size();i++)
+//        {
             //System.out.println("     "+this.AvailablePorts + " \n");
+            //System.out.println("Available ports " + AvailablePorts);
             while(AvailablePorts > 0)
             {
                 r = rand.nextInt(this.CityPorts.size());
@@ -76,17 +78,18 @@ public class Entity
                     seqSet.add(r);
                     this.CityPorts.set(r, false);
                     AvailablePorts --;
-                    //System.out.println("Available ports " + AvailablePorts);
-                    break;
+                    //System.out.println("value:"+r +"   Available ports " + AvailablePorts);
+                    //break;
                 }
             }
-        }
+        //}
         
-        for(int i =0; i< this.seqSet.size(); i++)
-        {
-            System.out.print(this.seqSet.get(i) + "  ");
-        }
+//        for(int i =0; i< this.seqSet.size(); i++)
+//        {
+//            System.out.print(this.seqSet.get(i) + "  ");
+//        }
         //System.out.println("\n");
+        //System.out.println("                CHILD SIZE " + this.seqSet.size());
 
         
         
@@ -107,7 +110,7 @@ public class Entity
         
         this.mileage += HT.getMiles((int)this.seqSet.get(0), (int)this.seqSet.get(this.seqSet.size() - 1));
         
-        System.out.print(" " +this.mileage + "\n"); 
+        //System.out.print(" " +this.mileage + "\n"); 
     }
     
     
@@ -125,97 +128,95 @@ public class Entity
         
         for(int i=0; i < this.CityPorts.size();i++)
         {
-            
-            if(i==0)
+            try
             {
-                //this.seqSet.add(Child1.getSet().get(i));
-                //this.CityPorts.set(4, false);
-                this.AvailablePorts--;
-                continue;
-            }
-            else if(i % 2 == 1)
-            {
-                //System.out.println("IN THE ODD (Child2) "+i);
-                k=i;
-                while(true)
+                if(i==0)
                 {
-                    if((boolean)this.CityPorts.get((int)Child2.getSet().get(k)) != false)
-                    {
-                        this.seqSet.add(Child2.getSet().get(k));
-                        //System.out.println("     " +(int)Child2.getSet().get(k));
-                        this.CityPorts.set((int)Child2.getSet().get(k), false);
-                        this.AvailablePorts--;
-                        break;                       
-                    }
-                    k++;
-                    
-                    if(k >= this.CityPorts.size())
-                    {
-                        break;
-                    }
+                    //this.seqSet.add(Child1.getSet().get(i));
+                    //this.CityPorts.set(4, false);
+                    //this.AvailablePorts--;
+                    continue;
                 }
-            }
-            else if(i % 2 == 0)
-            {
-                //System.out.println("IN THE EVEN (Child1) "+i);
-                k=i;
-                while(true)
+                else if(i % 2 == 1)
                 {
-                    if((boolean)this.CityPorts.get((int)Child1.getSet().get(k)) != false)
-                    {
-                        this.seqSet.add(Child1.getSet().get(k));
-                        //System.out.println("     " +(int)Child1.getSet().get(k));
-                        this.CityPorts.set((int)Child1.getSet().get(k), false);
-                        this.AvailablePorts--;
-                        break;                       
-                    }
-                    k++;
-                    
-                    if(k >= this.CityPorts.size())
-                    {
-                        break;
-                    }
-                }
-            }            
-        }
-        
-        if(AvailablePorts >0)
-        {
-            for(int i=0; i < this.CityPorts.size();i++)
-            {
-                Random rand = new Random();
-                int r = 0;
-                
-                if((boolean)this.CityPorts.get(i))
-                {
+                    //System.out.println("IN THE ODD (Child2) "+i);
+                    k=i;
                     while(true)
                     {
-                        r = rand.nextInt(this.CityPorts.size());
-                        //System.out.println("rand  " + r);
-
-                        if((boolean)this.CityPorts.get(r) != false)
+                        if((boolean)this.CityPorts.get((int)Child2.getSet().get(k)) != false)
                         {
+                            this.seqSet.add(Child2.getSet().get(k));
+                            //System.out.println("     " +(int)Child2.getSet().get(k));
+                            this.CityPorts.set((int)Child2.getSet().get(k), false);
+                            this.AvailablePorts--;
+                            break;                       
+                        }
+                        k++;
 
-                            seqSet.add(r);
-                            this.CityPorts.set(r, false);
-                            AvailablePorts --;
-                            //System.out.println("Available ports " + AvailablePorts);
+                        if(k >= this.CityPorts.size())
+                        {
                             break;
                         }
                     }
                 }
+                else if(i % 2 == 0)
+                {
+                    //System.out.println("IN THE EVEN (Child1) "+i);
+                    k=i;
+                    while(true)
+                    {
+                        if((boolean)this.CityPorts.get((int)Child1.getSet().get(k)) != false)
+                        {
+                            this.seqSet.add(Child1.getSet().get(k));
+                            //System.out.println("     " +(int)Child1.getSet().get(k));
+                            this.CityPorts.set((int)Child1.getSet().get(k), false);
+                            this.AvailablePorts--;
+                            break;                       
+                        }
+                        k++;
 
+                        if(k >= this.CityPorts.size())
+                        {
+                            break;
+                        }
+                    }
+                } 
+            }
+            catch(Exception ex){}
+        }
+        //System.out.println("            Available ports " + this.AvailablePorts);
+        if(AvailablePorts >0)
+        {
+            Random rand = new Random();
+            int r = 0;
+
+            while(AvailablePorts > 0)
+            {
+                r = rand.nextInt(this.CityPorts.size());
+                //System.out.println("rand  " + r);
+                
+                if((boolean)this.CityPorts.get(r) != false)
+                {
+                    
+                    seqSet.add(r);
+                    this.CityPorts.set(r, false);
+                    AvailablePorts --;
+                    //System.out.println("value:"+r +"   Available ports " + AvailablePorts);
+                    //break;
+                }
             }
         }
         
+        //System.out.println("                CHILD SIZE " + this.seqSet.size());
         
         
         
         
-        for(int i=0; i < this.seqSet.size(); i++)
-        {
-            System.out.print(this.seqSet.get(i) + "  ");
-        }
+        
+//        for(int i=0; i < this.seqSet.size(); i++)
+//        {
+//            System.out.print(this.seqSet.get(i) + "  ");
+//        }
     
     
     }
@@ -248,10 +249,10 @@ public class Entity
         this.seqSet.set(temp1, v2);
         this.seqSet.set(temp2, v1);
         
-        for(int i=0; i < this.seqSet.size(); i++)
-        {
-            System.out.print(this.seqSet.get(i) + "  ");
-        }
+//        for(int i=0; i < this.seqSet.size(); i++)
+//        {
+//            System.out.print(this.seqSet.get(i) + "  ");
+//        }
 
         this.calMileage();
         
