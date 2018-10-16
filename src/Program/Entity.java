@@ -1,21 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Program;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- *
- * @author fathe
- */
+/*******************************************************************************
+***CLASS NAME: Entity
+***CLASS AUTHOR: LUIS E VARGAS TAMAYO
+********************************************************************************
+***PURPOSE OF CLASS: CREATE AN OBJECT CHILD FOR THE GENETIC ALGORITHM
+********************************************************************************
+***DATE: 13 OCTOBER, 2018
+********************************************************************************
+***LIST OF CHANGES WITH DATES: N/A
+********************************************************************************
+***SPECIAL NOTES: N/A
+*** 
+***
+*******************************************************************************/
 public class Entity 
 {
     
     private ArrayList CityPorts;
+    
     private HashTable HT;
     
     private int AvailablePorts;
@@ -24,6 +30,17 @@ public class Entity
     
     private double mileage;
     
+    /***************************************************************************
+    ***METHOD NAME: Entity()
+    ***METHOD AUTHOR: LUIS E VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: CONSTRUCTOR
+    ***METHOD USED: CREATESET(), CALMILEAGE()
+    ***METHOD PARAMETERS: ARRAYLIST, HASHTABLE
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 13 OCTOBER 2018
+    ***************************************************************************/    
     public Entity(ArrayList cityPort, HashTable HT)
     {
         this.CityPorts = (ArrayList) cityPort.clone();
@@ -35,11 +52,22 @@ public class Entity
         CityPorts.set(4, false);
         this.AvailablePorts--;
         
-        
+        //CALLS METHODS TO DO THEIR WORK
         createSet();
         calMileage();
     }
-    
+
+    /***************************************************************************
+    ***METHOD NAME: Entity()
+    ***METHOD AUTHOR: LUIS E VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: SECOND CONSTRUCTOR
+    ***METHOD USED: MERGE(), CALMILEAGE()
+    ***METHOD PARAMETERS:ARRAYLIST, HASHTABLE, ENTITY,ENTITY
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 13 OCTOBER, 2018
+    ***************************************************************************/
     public Entity(ArrayList cityPort, HashTable HT, Entity Set1, Entity Set2)
     {
         this.CityPorts = (ArrayList) cityPort.clone();
@@ -51,53 +79,52 @@ public class Entity
         CityPorts.set(4, false);
         this.AvailablePorts--;
         
-        
+        //CALLS METHODS TO DO THEIR WORK
         merge(Set1,Set2);
         calMileage();
     }    
-    
+   
+    /***************************************************************************
+    ***METHOD NAME: createSet()
+    ***METHOD AUTHOR: LUIS E VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: CREATE A SET OF RANDOM NUMBERS BETWEEN O - 9
+    ***METHOD USED: NONE
+    ***METHOD PARAMETERS: NONE
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 13 OCTOBER 2018
+    ***************************************************************************/
     private void createSet()
     {
         Random rand = new Random();
         int r = 0;
         
-        
-        
-//        for(int i=1; i < this.CityPorts.size();i++)
-//        {
-            //System.out.println("     "+this.AvailablePorts + " \n");
-            //System.out.println("Available ports " + AvailablePorts);
             while(AvailablePorts > 0)
             {
                 r = rand.nextInt(this.CityPorts.size());
-                //System.out.println("rand  " + r);
-                
+
                 if((boolean)this.CityPorts.get(r) != false)
                 {
-                    
                     seqSet.add(r);
                     this.CityPorts.set(r, false);
                     AvailablePorts --;
-                    //System.out.println("value:"+r +"   Available ports " + AvailablePorts);
-                    //break;
+
                 }
             }
-        //}
-        
-//        for(int i =0; i< this.seqSet.size(); i++)
-//        {
-//            System.out.print(this.seqSet.get(i) + "  ");
-//        }
-        //System.out.println("\n");
-        //System.out.println("                CHILD SIZE " + this.seqSet.size());
 
-        
-        
-        
-    
-    
     }
-    
+    /***************************************************************************
+    ***METHOD NAME: calMileage()
+    ***METHOD AUTHOR: LUIS E. VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: CALCULATE THE MILES TRAVELED
+    ***METHOD USED: NONE
+    ***METHOD PARAMETERS: NONE
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 13 OCTOBER 2018
+    ***************************************************************************/   
     private void calMileage()
     {       
         this.mileage = 0;
@@ -121,7 +148,17 @@ public class Entity
     
     public ArrayList getSet(){return seqSet;};
     
-    
+    /***************************************************************************
+    ***METHOD NAME: merge()
+    ***METHOD AUTHOR: LUIS E VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: MERGE TO ENTITY'S SETS TO CREATE ONE
+    ***METHOD USED: NONE
+    ***METHOD PARAMETERS: ENTITY, ENTITY
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 13 OCTOBER, 2018
+    ***************************************************************************/    
     private void merge(Entity Child1, Entity Child2)
     {
         int k =0;
@@ -221,7 +258,17 @@ public class Entity
     
     }
     
-    
+    /***************************************************************************
+    ***METHOD NAME: mutate()
+    ***METHOD AUTHOR: LUIS E VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: CHANGE THE VALUE OF TWO INDEXES IN A SET
+    ***METHOD USED: NONE
+    ***METHOD PARAMETERS: NONE
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 13 OCTOBER, 2018
+    ***************************************************************************/    
     public void mutate()
     {
         Random rand = new Random();
