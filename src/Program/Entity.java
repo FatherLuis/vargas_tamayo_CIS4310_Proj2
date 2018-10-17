@@ -15,7 +15,6 @@ import java.util.Random;
 ********************************************************************************
 ***SPECIAL NOTES: N/A
 *** 
-***
 *******************************************************************************/
 public class Entity 
 {
@@ -41,15 +40,15 @@ public class Entity
     ****************************************************************************
     ***DATE: 13 OCTOBER 2018
     ***************************************************************************/    
-    public Entity(ArrayList cityPort, HashTable HT)
+    public Entity(ArrayList cityPort, HashTable HT, int firstCity)
     {
         this.CityPorts = (ArrayList) cityPort.clone();
         this.AvailablePorts = CityPorts.size();
         this.HT = HT;
         seqSet = new ArrayList();
         
-        seqSet.add(4);
-        CityPorts.set(4, false);
+        seqSet.add(firstCity);
+        CityPorts.set(firstCity, false);
         this.AvailablePorts--;
         
         //CALLS METHODS TO DO THEIR WORK
@@ -68,15 +67,15 @@ public class Entity
     ****************************************************************************
     ***DATE: 13 OCTOBER, 2018
     ***************************************************************************/
-    public Entity(ArrayList cityPort, HashTable HT, Entity Set1, Entity Set2)
+    public Entity(ArrayList cityPort, HashTable HT, Entity Set1, Entity Set2, int firstCity)
     {
         this.CityPorts = (ArrayList) cityPort.clone();
         this.AvailablePorts = CityPorts.size();
         this.HT = HT;
         seqSet = new ArrayList();
         
-        seqSet.add(4);
-        CityPorts.set(4, false);
+        seqSet.add(firstCity);
+        CityPorts.set(firstCity, false);
         this.AvailablePorts--;
         
         //CALLS METHODS TO DO THEIR WORK
