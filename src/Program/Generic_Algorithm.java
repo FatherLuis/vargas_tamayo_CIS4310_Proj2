@@ -1,17 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Program;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- *
- * @author fathe
- */
+/*******************************************************************************
+***CLASS NAME: Generic_Algorithm
+***CLASS AUTHOR: LUIS E VARGAS TAMAYO
+********************************************************************************
+***PURPOSE OF CLASS: Used to manage generic algorithm
+********************************************************************************
+***DATE: 13 OCTOBER, 2018
+********************************************************************************
+***LIST OF CHANGES WITH DATES: NONE
+********************************************************************************
+***SPECIAL NOTES: NONE
+*** 
+***
+*******************************************************************************/
 public class Generic_Algorithm 
 {
     private ArrayList CityList;
