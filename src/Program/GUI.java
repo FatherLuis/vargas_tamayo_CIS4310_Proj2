@@ -5,19 +5,51 @@
  */
 package Program;
 
-/**
- *
- * @author fathe
- */
+/*******************************************************************************
+***CLASS NAME: GUI
+***CLASS AUTHOR: LUIS E VARGAS TAMAYO
+********************************************************************************
+***PURPOSE OF CLASS: GRAPHICAL USER INTERFACE FOR USER
+********************************************************************************
+***DATE: 17 OCTOBER, 2018
+********************************************************************************
+***LIST OF CHANGES WITH DATES: NONE
+********************************************************************************
+***SPECIAL NOTES: NONE
+*** 
+***
+*******************************************************************************/
 public class GUI extends javax.swing.JFrame {
 
     Generic_Algorithm GA;
     
+    /***************************************************************************
+    ***METHOD NAME: GUI()
+    ***METHOD AUTHOR: LUIS E VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: CONSTRUCTOR
+    ***METHOD USED: initComponents()
+    ***METHOD PARAMETERS: NONE
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 17 OCTOBER, 2018
+    ***************************************************************************/    
     public GUI() 
     {
         initComponents();
     }
     
+    /***************************************************************************
+    ***METHOD NAME: setGeneticAlgorithm()
+    ***METHOD AUTHOR: LUIS E VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: SET THE GENETIC ALGORITH
+    ***METHOD USED: NONE
+    ***METHOD PARAMETERS: Generic_Algorithm
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 17 OCTOBER, 2018
+    ***************************************************************************/    
     public void setGeneticAlgorithm(Generic_Algorithm GA)
     {
         this.GA = GA;
@@ -164,14 +196,26 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
+    /***************************************************************************
+    ***METHOD NAME: btnSearchActionPerformed()
+    ***METHOD AUTHOR: LUIS E VARGAS TAMAYO
+    ****************************************************************************
+    ***PURPOSE OF THE METHOD: PERFORM OPERATIONS WHEN BUTTON IS PRESSED
+    ***METHOD USED: NONE
+    ***METHOD PARAMETERS: ACTION EVENT
+    ***RETURN VALUE: NONE
+    ****************************************************************************
+    ***DATE: 17 OCTOBER, 2018
+    ***************************************************************************/
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        
+        //GET SELECTED INDEX FROM COMBO BOX
         int city = this.cmbCity.getSelectedIndex();
+        //SET THE CITY SELECTED
         this.GA.setFirstCity(city);
-        
+        //MAKE OPERATIONS
         this.GA.Calculate();
-        
+        //SHOW RESULTS
         this.txtResults.setText(this.GA.getResults());
         
         
