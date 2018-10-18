@@ -84,7 +84,7 @@ public class GUI extends javax.swing.JFrame {
         instructionPanel.setMinimumSize(new java.awt.Dimension(200, 300));
         instructionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblInstructionTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblInstructionTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblInstructionTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInstructionTitle.setText("Instructions");
         lblInstructionTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -94,7 +94,7 @@ public class GUI extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Hello! This is a \ngenetic algorithm\nthat will try to \nfind the smallest \ndistance to travel \nbetween ten cities.\n\nOn the right, select\nthe city you would \nlike to start in.\nThen, click \"Search\"\n\nResults will be\nposted below.\n\nNote:\n\nResults will take about\nfive seconds to post.\n");
+        jTextArea1.setText(" Hello! This is a \n genetic algorithm\n that will try to \n find the smallest \n distance to travel \n between ten cities.\n\n On the right, select\n the city you would \n like to start in.\n Then, click \"Search\"\n\n Results will be\n posted below.\n\n Note:\n\n Results will take about\n five seconds to post.\n");
         jScrollPane1.setViewportView(jTextArea1);
 
         instructionPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 180, 400));
@@ -104,15 +104,16 @@ public class GUI extends javax.swing.JFrame {
         AlgorithmPanel.setBackground(new java.awt.Color(0, 153, 153));
         AlgorithmPanel.setPreferredSize(new java.awt.Dimension(400, 300));
 
-        lblAlgorithTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblAlgorithTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAlgorithTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAlgorithTitle.setText("Genetic Algorithm");
         lblAlgorithTitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        cmbCity.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cmbCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Killeen", "Dallas", "Houston", "El Paso", "Sherman", "Taylor", "Tyler", "Dime Box", "Big Foot", "Frio Town" }));
         cmbCity.setAlignmentY(0.0F);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Select City...");
 
         txtResults.setEditable(false);
@@ -166,14 +167,14 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch)
                 .addGap(31, 31, 31)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                .addGap(0, 83, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                .addGap(0, 82, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(AlgorithmPanel);
